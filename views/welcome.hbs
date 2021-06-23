@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>
+            QUIZ WIZARD
+        </title>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="icon" href="/img/icon.png">
+    </head>
+    <body>
+        <center>
+        <h1>WELCOME {{name}}</h1>
+        <div class="w_main">
+            <p id="qs"></p>
+            <div class="ans">
+               <button id="a" onclick="get(this)"></button><br><br>
+               <button id="b" onclick="get(this)"></button><br><br>
+               <button id="c" onclick="get(this)"></button><br><br>
+               <button id="d" onclick="get(this)"></button>
+            </div>
+        </div>
+        <div class="sc">
+            <h4>Your Score:</h4><p id="ans">0</p>
+        </div>
+        </center>
+        <script>
+        var sc=0
+        var qs=[{"q":"How can we describe an array in the best possible way?","ans":'c',"ops":{"a":"The Array shows a hierarchical structure.","b":"Arrays are immutable.","c":"Container that stores the elements of similar types","d":"The Array is not a data structure"}},
+        {"q":"Which of the following is the correct way of declaring an array?","ans":"a","ops":{"a":"int javatpoint[10];","b":"int javatpoint;","c":"javatpoint{20};","d":"array javatpoint[10];"}},
+        {"q":" How can we initialize an array in C language?","ans":"c","ops":{"a":"int arr[2]=(10, 20)","b":"int arr(2)={10, 20}","c":"int arr[2] = {10, 20}","d":"int arr(2) = (10, 20)"}},
+        {"q":"Which of the following is the advantage of the array data structure?","ans":"b","ops":{"a":"Elements of mixed data types can be stored.","b":"Easier to access the elements in an array","c":"Index of the first element starts from 1.","d":"Elements of an array cannot be sorted"}},
+        {"q":"Which of the following highly uses the concept of an array?","ans":"c","ops":{"a":"Binary Search tree","b":"Caching","c":"Spatial locality","d":"Scheduling of Processes"}}]
+        var lb=['a','b','c','d'],j=0
+        document.querySelector('#qs').innerHTML=qs[j].q
+        for(let i=0;i<4;i++){
+            document.querySelector(`#${lb[i]}`).innerHTML=qs[j].ops[lb[i]]
+        }
+        function get(e){
+            if(j<4){
+                if(e.id==qs[j].ans){sc+=10
+                }
+                j++
+                console.log(j)
+                document.querySelector('#ans').innerHTML=sc
+                document.querySelector('#qs').innerHTML=qs[j].q
+                for(let i=0;i<4;i++){
+                document.querySelector(`#${lb[i]}`).innerHTML=qs[j].ops[lb[i]]
+                } 
+            }
+        else if(j<5){
+            if(e.id==qs[j].ans){sc+=10}
+             document.querySelector('#ans').innerHTML=sc
+            j++
+            var bt=document.createElement('button')
+            bt.innerHTML="Submit"
+            bt.setAttribute('id','afsb')
+            bt.setAttribute('onclick','submit()')
+            document.querySelector('#ans').insertAdjacentElement('afterend',bt)
+        }
+        }
+        document.querySelector('#ans').innerHTML=sc
+        function submit(){
+            window.history.back()
+        }
+    </script>
+    </body>
+</html>
