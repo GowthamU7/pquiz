@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="sc">
-            <h4>Your Score:</h4><p id="ans">0</p>
+            <h4>Your Score:</h4><p id="ans"></p>
         </div>
         </center>
         <script>
@@ -59,7 +59,8 @@
         }
         document.querySelector('#ans').innerHTML=sc
         function submit(){
-            window.history.back()
+            var url=`/submit?score=${sc}`
+                 window.location.replace(url)
         }
     </script>
     </body>
