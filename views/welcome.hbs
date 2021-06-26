@@ -12,14 +12,14 @@
         <div class="w_main">
             <p id="qs"></p>
             <div class="ans">
-               <button id="a" onclick="get(this)"></button><br><br>
-               <button id="b" onclick="get(this)"></button><br><br>
-               <button id="c" onclick="get(this)"></button><br><br>
-               <button id="d" onclick="get(this)"></button>
+                <button id="a" onclick="get(this)"></button><br><br>
+                <button id="b" onclick="get(this)"></button><br><br>
+                <button id="c" onclick="get(this)"></button><br><br>
+                <button id="d" onclick="get(this)"></button>
             </div>
         </div>
-        <div class="sc">
-            <h4>Your Score:</h4><p id="ans"></p>
+        <div>
+            <p id="ans"></p>
         </div>
         </center>
         <script>
@@ -36,19 +36,15 @@
         }
         function get(e){
             if(j<4){
-                if(e.id==qs[j].ans){sc+=10
-                }
+                if(e.id==qs[j].ans){sc+=10}
                 j++
-                console.log(j)
-                document.querySelector('#ans').innerHTML=sc
                 document.querySelector('#qs').innerHTML=qs[j].q
                 for(let i=0;i<4;i++){
                 document.querySelector(`#${lb[i]}`).innerHTML=qs[j].ops[lb[i]]
                 } 
             }
         else if(j<5){
-            if(e.id==qs[j].ans){sc+=10}
-             document.querySelector('#ans').innerHTML=sc
+             if(e.id==qs[j].ans){sc+=10}
             j++
             var bt=document.createElement('button')
             bt.innerHTML="Submit"
@@ -57,11 +53,11 @@
             document.querySelector('#ans').insertAdjacentElement('afterend',bt)
         }
         }
-        document.querySelector('#ans').innerHTML=sc
         function submit(){
             var url=`/submit?score=${sc}`
                  window.location.replace(url)
         }
     </script>
     </body>
+    <footer>{{>footer}}</footer>
 </html>

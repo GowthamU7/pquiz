@@ -88,6 +88,7 @@ h3{
     padding-top: 20px;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
+    color: #333333;
 }
 .sc{
     width:300px;
@@ -109,4 +110,8 @@ h3{
 }
 #ans{
     color: indigo;
+}
+footer{
+    padding-top: 200px;
+    text-align: right;
 }
